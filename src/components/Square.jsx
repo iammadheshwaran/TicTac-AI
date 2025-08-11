@@ -1,13 +1,14 @@
 import React from 'react'
+import { motion, scale } from 'framer-motion'
 
-const Square = ({value}) => {
-
-    console.log(value);
+const Square = ({value, onClick}) => {
 
   return (
-    <div className='w-[90px] h-[90px] bg-[#1f0534] items-center justify-center border-1 border-purple-900'>
+    <motion.button className='w-[90px] h-[90px] bg-[#1f0534] flex text-4xl font-semibold  items-center justify-center border-1 border-purple-900'
+    whileTap={{scale:0.9}}
+    onClick={onClick}>
         {value}
-    </div>
+    </motion.button>
   )
 }
 
