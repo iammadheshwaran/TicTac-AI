@@ -39,12 +39,13 @@ const App = () => {
     // check if someone already won
     const result = checkWinner(board);
 
-    if (result?.winner) {
+    if (result?.winner && !winner) {
+      // only run if we haven't already set a winner
       setWinner(result.winner);
       if (result.winner === "X" || result.winner === "O") {
         setScore((prev) => ({
           ...prev,
-          [result.winner]: prev[result.winner] + 1, // FIXED
+          [result.winner]: prev[result.winner] + 1,
         }));
       }
       return; // stop here so AI won't move after win
